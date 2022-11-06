@@ -1,21 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import Todo from "./Todo";
 
-import Todo from './Todo';
+import "./Todos.module.css";
 
 const Todos = (props) => {
-  const { todos } = props;
+  console.log(props);
   return (
-    <section className="todos">
-      {todos.map((todo) => (
-        <Todo key={todo.id} todo={todo} />
-      ))}
-    </section>
+    <>
+      <div>
+        {props.todosData.map((todo) => (
+          <Todo key={todo.id} {...todo.newTodo|| todo} />
+        ))}
+      </div>
+    </>
   );
-};
-
-Todos.propTypes = {
-  todos: PropTypes.array
 };
 
 export default Todos;
